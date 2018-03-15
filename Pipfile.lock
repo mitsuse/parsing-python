@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3ed57b72e375ff06a941b53d995d9834ac8757d3d75d60c4f67f9e90821ef4e3"
+            "sha256": "52acd708b71ec8cad342b8074d9c56a64101845bdc1b0b6c99e4488a54359c66"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -15,7 +15,12 @@
             }
         ]
     },
-    "default": {},
+    "default": {
+        "e1839a8": {
+            "editable": true,
+            "path": "."
+        }
+    },
     "develop": {
         "mypy": {
             "hashes": [
