@@ -12,6 +12,8 @@ setup(
     url='https://github.com/mitsuse/parsing-python',
     author='Tomoya Kose',
     author_email='tomoya@mitsuse.jp',
+    install_requires=[
+    ],
     license='MIT',
     classifiers=[
         'Development Status :: 1 - Planning',
