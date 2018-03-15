@@ -11,3 +11,8 @@ name = "pypi"
 [dev-packages]
 
 mypy = "~= 0.57"
+
+
+[requires]
+
+python_version = "3.6"
