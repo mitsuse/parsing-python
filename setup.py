@@ -13,6 +13,7 @@ setup(
     author='Tomoya Kose',
     author_email='tomoya@mitsuse.jp',
     install_requires=[
+        'typing>=3.1.6<=4.0.0',
     ],
     license='MIT',
     classifiers=[
