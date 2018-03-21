@@ -24,3 +24,17 @@ class Word(Generic[A]):
 
 def word(surface: str) -> Word[None]:
     return Word(surface, None)
+
+
+class Token(Generic[A]):
+    def __init__(self, word: Word[A], index: int) -> None:
+        self.__word = word
+        self.__index = index
+
+    @property
+    def word(self) -> Word[A]:
+        return self.__word
+
+    @property
+    def index(self) -> int:
+        return self.__index
