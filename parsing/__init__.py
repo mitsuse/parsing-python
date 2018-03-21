@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # coding: utf-8
 
+from typing import List
 from typing import Generic
 from typing import Set
 from typing import TypeVar
@@ -66,3 +67,7 @@ class DirectedEdge(Generic[V, L]):
     @property
     def label(self) -> L:
         return self.__label
+
+
+class Parser(Protocol[A, L]):
+    def parse(self, sentence: List[Word[A]]) -> DirectedGraph[Token[A], L]: ...
