@@ -19,6 +19,22 @@
         "e1839a8": {
             "editable": true,
             "path": "."
+        },
+        "typing": {
+            "hashes": [
+                "sha256:3a887b021a77b292e151afb75323dea88a7bc1b3dfa92176cff8e44c8b68bddf",
+                "sha256:b2c689d54e1144bbcfd191b0832980a21c2dbcf7b5ff7a66248a60c90e951eb8",
+                "sha256:d400a9344254803a2368533e4533a4200d21eb7b6b729c173bc38201a74db3f2"
+            ],
+            "version": "==3.6.4"
+        },
+        "typing-extensions": {
+            "hashes": [
+                "sha256:3f917fa1eb17b7dc09f19e01b52bfe15e7bc67c34cc3cf63613c8a37ce953b59",
+                "sha256:a685d27cadf53b99a18e953697e859f09478912efcbd8c86b89af9f6402dc301",
+                "sha256:dc18da05be5c924538481f6761700757eb36415213350d5e15b9cbd72e46ffe3"
+            ],
+            "version": "==3.6.2.1"
         }
     },
     "develop": {
@@ -58,7 +74,6 @@
                 "sha256:b2c689d54e1144bbcfd191b0832980a21c2dbcf7b5ff7a66248a60c90e951eb8",
                 "sha256:d400a9344254803a2368533e4533a4200d21eb7b6b729c173bc38201a74db3f2"
             ],
-            "markers": "python_version < '3.5'",
             "version": "==3.6.4"
         }
     }
