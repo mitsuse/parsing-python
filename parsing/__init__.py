@@ -27,17 +27,17 @@ class Word(Generic[A]):
         return self.__attributes
 
 
-def word(surface: str) -> Word[None]:
+def word(surface: str) -> 'Word[None]':
     return Word(surface, None)
 
 
 class Token(Generic[A]):
-    def __init__(self, word: Word[A], index: int) -> None:
+    def __init__(self, word: 'Word[A]', index: int) -> None:
         self.__word = word
         self.__index = index
 
     @property
-    def word(self) -> Word[A]:
+    def word(self) -> 'Word[A]':
         return self.__word
 
     @property
@@ -47,7 +47,7 @@ class Token(Generic[A]):
 
 class DirectedGraph(Protocol[V, L]):
     def vertices(self) -> FrozenSet[V]: ...
-    def edges(self) -> FrozenSet[DirectedEdge[V, L]]: ...
+    def edges(self) -> FrozenSet['DirectedEdge[V, L]']: ...
 
 
 class DirectedEdge(Generic[V, L]):
@@ -70,4 +70,4 @@ class DirectedEdge(Generic[V, L]):
 
 
 class Parser(Protocol[A, L]):
-    def parse(self, sentence: Tuple[Word[A], ...]) -> DirectedGraph[Token[A], L]: ...
+    def parse(self, sentence: Tuple['Word[A]', ...]) -> DirectedGraph['Token[A]', L]: ...
