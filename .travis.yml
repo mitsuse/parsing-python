@@ -1,0 +1,10 @@
+language: python
+python:
+  - "3.6"
+before_install:
+  - pip install pipenv
+install:
+  - pipenv install
+  - pipenv install -d
+script:
+  - pipenv run mypy --strict parsing
