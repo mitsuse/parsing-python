@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # coding: utf-8
 
-from typing import List
+from typing import FrozenSet
 from typing import Generic
-from typing import Set
+from typing import Tuple
 from typing import TypeVar
 from typing_extensions import Protocol
 
@@ -46,8 +46,8 @@ class Token(Generic[A]):
 
 
 class DirectedGraph(Protocol[V, L]):
-    def vertices(self) -> Set[V]: ...
-    def edges(self) -> Set[DirectedEdge[V, L]]: ...
+    def vertices(self) -> FrozenSet[V]: ...
+    def edges(self) -> FrozenSet[DirectedEdge[V, L]]: ...
 
 
 class DirectedEdge(Generic[V, L]):
@@ -70,4 +70,4 @@ class DirectedEdge(Generic[V, L]):
 
 
 class Parser(Protocol[A, L]):
-    def parse(self, sentence: List[Word[A]]) -> DirectedGraph[Token[A], L]: ...
+    def parse(self, sentence: Tuple[Word[A], ...]) -> DirectedGraph[Token[A], L]: ...
