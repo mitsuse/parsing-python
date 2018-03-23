@@ -17,18 +17,30 @@ L = TypeVar('L')
 class Parser(Generic[A, L]):
     def parse(
         self,
-        sentence: Tuple[parsing.Word[A], ...]
-    ) -> parsing.DirectedGraph[parsing.Token[A], L]:
+        sentence: Tuple['parsing.Word[A]', ...]
+    ) -> 'parsing.DirectedGraph[parsing.Token[A], L]':
         pass
 
 
 class State(Generic[A, L]):
     def __init__(
         self,
-        stack: Tuple[parsing.Token[A], ...],
-        queue: Tuple[parsing.Token[A], ...],
-        arcs: FrozenSet[parsing.DirectedEdge[parsing.Token[A], L]]
+        stack: Tuple['parsing.Token[A]', ...],
+        queue: Tuple['parsing.Token[A]', ...],
+        arcs: FrozenSet['parsing.DirectedEdge[parsing.Token[A], L]']
     ) -> None:
-        self.stack = stack
-        self.queue = queue
-        self.arcs = arcs
+        self.__stack = stack
+        self.__queue = queue
+        self.__arcs = arcs
+
+    @property
+    def stack(self) -> Tuple['parsing.Token[A]', ...]:
+        return self.__stack
+
+    @property
+    def queue(self) -> Tuple['parsing.Token[A]', ...]:
+        return self.__queue
+
+    @property
+    def arcs(self) -> FrozenSet['parsing.DirectedEdge[parsing.Token[A], L]']:
+        return self.__arcs
