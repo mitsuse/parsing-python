@@ -33,6 +33,9 @@ def word(surface: str) -> 'Word[None]':
     return Word(surface, None)
 
 
+Sentence = Tuple['Word[A]', ...]
+
+
 class Root: pass
 
 
@@ -80,5 +83,8 @@ class DirectedEdge(Generic[V, L]):
         return self.__label
 
 
+DependencyGraph = DirectedGraph['Token[A]', L]
+
+
 class Parser(Protocol[A, L]):
-    def parse(self, sentence: Tuple['Word[A]', ...]) -> DirectedGraph['Token[A]', L]: ...
+    def parse(self, sentence: 'Sentence[A]') -> DependencyGraph[A, L]: ...
