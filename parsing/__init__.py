@@ -13,9 +13,9 @@ A = TypeVar('A')
 L = TypeVar('L')
 
 
-DependencyGraph = math.DirectedGraph['ling.Token[A]', L]
-DependencyArc = math.DirectedEdge['ling.Token[A]', L]
+Graph = math.DirectedGraph['ling.Token[A]', L]
+Edge = math.DirectedEdge['ling.Token[A]', L]
 
 
 class Parser(Protocol[A, L]):
-    def parse(self, sentence: 'ling.Sentence[A]') -> DependencyGraph[A, L]: ...
+    def parse(self, sentence: 'ling.Sentence[A]') -> Graph[A, L]: ...
