@@ -21,7 +21,7 @@ class Parser(Generic[A, L]):
     def parse(
         self,
         sentence: 'ling.Sentence[A]'
-    ) -> 'parsing.DependencyGraph[A, L]':
+    ) -> 'parsing.Graph[A, L]':
         pass
 
 
@@ -30,11 +30,11 @@ class State(Generic[A, L]):
         self,
         stack: Tuple['ling.Token[A]', ...],
         queue: Tuple['ling.Token[A]', ...],
-        arcs: FrozenSet['math.DirectedEdge[ling.Token[A], L]']
+        edges: FrozenSet['parsing.Edge[A, L]']
     ) -> None:
         self.__stack = stack
         self.__queue = queue
-        self.__arcs = arcs
+        self.__edges = edges
 
     @property
     def stack(self) -> Tuple['ling.Token[A]', ...]:
@@ -45,5 +45,5 @@ class State(Generic[A, L]):
         return self.__queue
 
     @property
-    def arcs(self) -> FrozenSet['math.DirectedEdge[ling.Token[A], L]']:
-        return self.__arcs
+    def arcs(self) -> FrozenSet['parsing.Edge[A, L]']:
+        return self.__edges
