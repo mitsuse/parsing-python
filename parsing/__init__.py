@@ -14,6 +14,7 @@ L = TypeVar('L')
 
 
 DependencyGraph = math.DirectedGraph['ling.Token[A]', L]
+DependencyArc = math.DirectedEdge['ling.Token[A]', L]
 
 
 class Parser(Protocol[A, L]):
