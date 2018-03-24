@@ -10,7 +10,6 @@ from parsing import math
 
 
 A = TypeVar('A')
-V = TypeVar('V')
 L = TypeVar('L')
 
 
