@@ -9,6 +9,10 @@ from typing_extensions import Protocol
 
 import parsing 
 
+from parsing.ling import Sentence
+from parsing.ling import Token
+from parsing.math import DirectedEdge
+
 
 A = TypeVar('A')
 L = TypeVar('L')
@@ -17,16 +21,16 @@ L = TypeVar('L')
 class Parser(Generic[A, L]):
     def parse(
         self,
-        sentence: Tuple['parsing.Word[A]', ...]
-    ) -> 'parsing.DirectedGraph[parsing.Token[A], L]':
+        sentence: 'Sentence[A]'
+    ) -> 'parsing.DependencyGraph[A, L]':
         pass
 
 
 class State(Generic[A, L]):
     def __init__(
         self,
-        stack: Tuple['parsing.Token[A]', ...],
-        queue: Tuple['parsing.Token[A]', ...],
+        stack: Tuple['Token[A]', ...],
+        queue: Tuple['Token[A]', ...],
         arcs: FrozenSet['parsing.DirectedEdge[parsing.Token[A], L]']
     ) -> None:
         self.__stack = stack
