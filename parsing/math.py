@@ -6,14 +6,16 @@ from typing import Generic
 from typing import TypeVar
 from typing_extensions import Protocol
 
-
 V = TypeVar('V')
 L = TypeVar('L')
 
 
 class DirectedGraph(Protocol[V, L]):
-    def vertices(self) -> FrozenSet[V]: ...
-    def edges(self) -> FrozenSet['DirectedEdge[V, L]']: ...
+    def vertices(self) -> FrozenSet[V]:
+        ...
+
+    def edges(self) -> FrozenSet['DirectedEdge[V, L]']:
+        ...
 
 
 class DirectedEdge(Generic[V, L]):

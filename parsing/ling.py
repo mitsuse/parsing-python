@@ -7,7 +7,6 @@ from typing import Type
 from typing import TypeVar
 from typing import Union
 
-
 A = TypeVar('A')
 
 
@@ -32,10 +31,12 @@ def word(surface: str) -> 'Word[None]':
 Sentence = Tuple['Word[A]', ...]
 
 
-class Root: pass
+class Root:
+    pass
 
 
-class Terminal: pass
+class Terminal:
+    pass
 
 
 Symbol = Union[Type[Root], Type[Terminal], Word[A]]

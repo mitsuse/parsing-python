@@ -8,3 +8,4 @@ install:
   - pipenv install -d
 script:
   - pipenv run mypy --strict parsing
+  - pipenv run yapf -r parsing -d
