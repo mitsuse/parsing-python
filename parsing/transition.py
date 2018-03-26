@@ -24,13 +24,14 @@ class Parser(Generic[A, L]):
 class State(Generic[A, L]):
     @staticmethod
     def initial(sentence: 'ling.Sentence[A]') -> 'State[A, L]':
-        queue: Tuple['ling.Token[A]', ...] = tuple(
-            map(lambda index, word: ling.Token(word, index),
-                enumerate(sentence, start=1)))
+        def create_token(x: Tuple[int, 'ling.Word[A]']) -> 'ling.Token[A]':
+            word, index = x
+            return ling.Token(index, word)
+
+        token_root: 'ling.Token[A]' = ling.Token(ling.Root, 0)
+
         return State(
-            # (ling.Token(ling.Root, 0)),
-            (),
-            queue,
+            tuple([token_root]), tuple(map(create_token, enumerate(sentence))),
             frozenset())
 
     def __init__(self, stack: Tuple['ling.Token[A]', ...],
