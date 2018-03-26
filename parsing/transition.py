@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # coding: utf-8
 
+from typing import Callable
 from typing import FrozenSet
 from typing import Generic
 from typing import Tuple
@@ -11,14 +12,29 @@ import parsing
 
 from parsing import ling
 from parsing import math
+from parsing import ml
 
 A = TypeVar('A')
 L = TypeVar('L')
 
+Transition = Callable[['State[A, L]'], 'State[A, L]']
+
 
 class Parser(Generic[A, L]):
+    def __init__(self,
+                 classifier: 'ml.Classifier[State[A, L], Transition[A, L]]'
+                 ) -> None:
+        self.__classifier = classifier
+
     def parse(self, sentence: 'ling.Sentence[A]') -> 'parsing.Graph[A, L]':
-        pass
+        classifier = self.__classifier
+
+        state: 'State[A, L]' = State.initial(sentence)
+        while not state.is_terminal:
+            transition = classifier.classify(state)
+            state = transition(state)
+
+        return parsing.Graph(frozenset(), state.arcs)
 
 
 class State(Generic[A, L]):
