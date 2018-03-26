@@ -52,3 +52,7 @@ class State(Generic[A, L]):
     @property
     def arcs(self) -> FrozenSet['parsing.Edge[A, L]']:
         return self.__edges
+
+    @property
+    def is_terminal(self) -> bool:
+        return len(self.__queue) == 0
